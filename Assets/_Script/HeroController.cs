@@ -25,7 +25,7 @@ public class HeroController : MonoBehaviour {
 	public float jumpForce;
 	public Transform groundCheck;
 	public Transform camera;
-//	public GameController gameController;
+	public GameController gameController;
 
 	// PRIVATE  INSTANCE VARIABLES
 	private Animator _animator;
@@ -136,11 +136,17 @@ public class HeroController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D other) {
+
+		if(other.gameObject.CompareTag("Gems")) {
+			//this._coinSound.Play ();
+			Destroy (other.gameObject);
+			this.gameController.ScoreValue += 10;
+		}
 		
 		if(other.gameObject.CompareTag("Death")) {
 			this._spawn ();
 		//	this._hurtSound.Play ();
-		//	this.gameController.LivesValue--;
+			this.gameController.LivesValue--;
 		}
 	}
 
