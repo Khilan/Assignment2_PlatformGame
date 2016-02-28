@@ -132,6 +132,16 @@ public class HeroController : MonoBehaviour {
 			this._rigidBody2D.AddForce (new Vector2 (forceX, forceY));
 		}
 
+
+	}
+
+	void OnCollisionEnter2D(Collision2D other) {
+		
+		if(other.gameObject.CompareTag("Death")) {
+			this._spawn ();
+		//	this._hurtSound.Play ();
+		//	this.gameController.LivesValue--;
+		}
 	}
 
 	//PRIVATE Methods
@@ -141,6 +151,10 @@ public class HeroController : MonoBehaviour {
 		} else {
 			this._transform.localScale = new Vector2 (-1, 1);
 		}
+	}
+
+	private void _spawn() {
+		this._transform.position = new Vector3 (-250f, 100f, 0);
 	}
 }
 
