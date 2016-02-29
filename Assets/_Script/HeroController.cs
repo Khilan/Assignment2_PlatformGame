@@ -39,6 +39,7 @@ public class HeroController : MonoBehaviour {
 	private AudioSource _jumpSound;
 	private AudioSource _coinSound;
 	private AudioSource _hurtSound;
+	private AudioSource _winSound;
 
 
 	// Use this for initialization
@@ -59,6 +60,7 @@ public class HeroController : MonoBehaviour {
 		this._jumpSound = this._audioSources [0];
 		this._coinSound = this._audioSources [1];
 		this._hurtSound = this._audioSources [2];
+		this._winSound = this._audioSources [3];
 
 		this._spawn ();
 
@@ -153,6 +155,42 @@ public class HeroController : MonoBehaviour {
 			this._hurtSound.Play ();
 			this.gameController.LivesValue--;
 		}
+
+		if(other.gameObject.CompareTag("Obstacle")) {
+			//this._spawn ();
+			this._hurtSound.Play ();
+			this.gameController.LivesValue--;
+		}
+
+		if(other.gameObject.CompareTag("Death1")) {
+			this._spawn1 ();
+			this._hurtSound.Play ();
+			this.gameController.LivesValue--;
+		}
+
+		if(other.gameObject.CompareTag("Death2")) {
+			this._spawn2 ();
+			this._hurtSound.Play ();
+			this.gameController.LivesValue--;
+		}
+
+		if(other.gameObject.CompareTag("Death3")) {
+			this._spawn3 ();
+			this._hurtSound.Play ();
+			this.gameController.LivesValue--;
+		}
+
+		if(other.gameObject.CompareTag("Death4")) {
+			this._spawn4 ();
+			this._hurtSound.Play ();
+			this.gameController.LivesValue--;
+		}
+
+		if(other.gameObject.CompareTag("Win")) {
+		//	this._spawn ();
+			this._winSound.Play ();
+			this.gameController.WinValue += 10;
+		}
 	}
 
 	//PRIVATE Methods
@@ -165,7 +203,24 @@ public class HeroController : MonoBehaviour {
 	}
 
 	private void _spawn() {
-		this._transform.position = new Vector3 (-250f, 100f, 0);
+		//this._transform.position = new Vector3 (-350f, -260f, 0);
+		this._transform.position = new Vector3 (5863f, 228f, 0);
+	}
+
+	private void _spawn1() {
+		this._transform.position = new Vector3 (700f, -215f, 0);
+	}
+
+	private void _spawn2() {
+		this._transform.position = new Vector3 (2666f, 100f, 0);
+	}
+
+	private void _spawn3() {
+		this._transform.position = new Vector3 (4475f, 240f, 0);
+	}
+
+	private void _spawn4() {
+		this._transform.position = new Vector3 (5860f, 240f, 0);
 	}
 }
 
