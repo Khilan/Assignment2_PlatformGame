@@ -203,8 +203,7 @@ public class HeroController : MonoBehaviour {
 	}
 
 	private void _spawn() {
-		//this._transform.position = new Vector3 (-350f, -260f, 0);
-		this._transform.position = new Vector3 (5860f, 240f, 0);
+		this._transform.position = new Vector3 (-350f, -260f, 0);
 	}
 
 	private void _spawn1() {
