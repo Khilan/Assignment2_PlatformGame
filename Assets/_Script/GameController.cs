@@ -89,10 +89,10 @@ public class GameController : MonoBehaviour {
 		this.RestartButton.gameObject.SetActive(false);
 		this.WinLabel.gameObject.SetActive (false);
 
-		if (this._win == 10) {
-			this.WinLabel.gameObject.SetActive (true);
-			this.GameOverLabel.gameObject.SetActive (false);
-		}
+	//	if (this._win == 10) {
+	//		this.WinLabel.gameObject.SetActive (true);
+	//		this.GameOverLabel.gameObject.SetActive (false);
+	//	}
 	}
 
 	private void _endGame() {
@@ -104,11 +104,11 @@ public class GameController : MonoBehaviour {
 		this.hero.gameObject.SetActive (false);
 		this.RestartButton.gameObject.SetActive (true);
 
-		if (this._win == 10) {
-			this.WinLabel.gameObject.SetActive (true);
-			this.GameOverLabel.gameObject.SetActive (false);
-
-		}
+	//	if (this._win == 10) {
+	//		this.WinLabel.gameObject.SetActive (true);
+	//		this.GameOverLabel.gameObject.SetActive (false);
+		//
+	//	}
 	}
 
 	// PUBLIC METHODS
